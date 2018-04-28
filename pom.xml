@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>pl.ustrzycki</groupId>
-	<artifactId>aaa_school</artifactId>
+	<artifactId>aaa_Refer1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging> <!-- for JSP zmienione z JAr -->
 
@@ -22,9 +22,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<!--  for JSP -->
+		<!--  for JSP
 		<main.basedir>${basedir}/../..</main.basedir>
-		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
+		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot> nie wiem po co to zrobił... nie trzeba dla JSP -->
 	</properties>
 
 	<dependencies>
@@ -43,10 +43,12 @@
             <artifactId>hibernate-validator</artifactId>
         </dependency>
         
+        <!--   chyba tez niepotrzebny do niczego
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-el</artifactId>
         </dependency>
+        -->
         
        <!-- END -  for validating form input  --> 
         
@@ -93,13 +95,11 @@
 		
 		<!-- start - JSP support             -->
 		
-		<!-- JSTL for JSP -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
 
-		<!-- Need this to compile JSP -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
