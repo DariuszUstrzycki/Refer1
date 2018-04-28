@@ -14,10 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-@RunWith(SpringRunner.class)
-//those below inject a MockMvc instance.
+@RunWith(SpringRunner.class) // SpringRunner is an alias for the SpringJUnit4ClassRunner.
+
+//those two below inject a MockMvc instance.
 @SpringBootTest // we are asking for the whole application context to be created. An alternative would be 
 // to ask Spring Boot to create only the web layers of the context using the @WebMvcTest
+
 @AutoConfigureMockMvc
 public class HelloControllerTest {
 /*
@@ -29,8 +31,9 @@ public class HelloControllerTest {
 
     @Test
     public void getHello() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(MockMvcRequestBuilders.get("/hello")
+        		.accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Greetings from Spring Boot!")));
+                .andExpect(content().string(equalTo("Greetings from Spring Boot HelloController!")));
     }
 }

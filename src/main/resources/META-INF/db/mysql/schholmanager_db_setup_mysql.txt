@@ -1,0 +1,9 @@
+create database db_example; -- Create the new database
+create user 'springuser'@'localhost' identified by 'ThePassword'; -- Creates the user
+grant all on db_example.* to 'springuser'@'localhost'; -- Gives all the privileges to the new user on the newly created database
+
+It is good security practice that after your database is in production state, you make spring.jpa.hibernate.ddl-auto=none 
+ and revoke all privileges from the MySQL user connected to the Spring application, then give him 
+ only SELECT, UPDATE, INSERT, DELETE.
+ 
+ 

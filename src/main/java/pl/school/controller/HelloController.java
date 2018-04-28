@@ -5,10 +5,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController // @Controller and @ResponseBody
 public class HelloController {
-
-    @RequestMapping("/") //  maps / to the index() method. 
+/*
+	By default Spring Boot serves static content from resources in the classpath 
+	at "/static" (or "/public"). The index.html resource is special because it is 
+	used as a "welcome page" if it exists, which means it will be served up as 
+	the root resource, i.e. at http://localhost:8080/ in our example.
+	*/
+	
+    @RequestMapping("/hello")  
     public String index() {
-        return "Greetings from Spring Boot!";
+        return "Greetings from Spring Boot HelloController!";
     }
     
     
