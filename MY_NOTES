@@ -51,7 +51,59 @@
     
     
     -------------------------------
+    Dzialajacy przyklad to  BootstrapAndJQueryController.java w aaa_Refer1
+    JSP, CSS, JQUERY AND BOOTSTRAP:
+    1. dependencies
+    <dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.7</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap-datepicker</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		
+		dla JSP:
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+	2. src/main/resources/static i tam /css i /js
+	
+	3. jsp page in WEB-INF/views z kodem	
+	<head>
+    <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"   rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+	</head>
+	
+	oraz na górze:
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+	lub na dole:
+	<script src="webjars/jquery/1.11.1/jquery.min.js"></script>
+	
+	i to na dole
+    <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
+   
+   
+----------------------------
 
 
 Due to the default restart exclusions, changes to static resources do not trigger a restart of your application.
@@ -75,9 +127,14 @@ spring.mvc.static-path-pattern=/resources/**
 Do not use the src/main/webapp directory if your application is packaged as a jar. Although this directory is 
 a common standard, it works only with war packaging, and it is silently ignored 
 by most build tools if you generate a jar.
+--------------------------
+tu jest projekt gdzie static folder jest wrzucony do webapp folderu...:
+http://www.springboottutorial.com/spring-boot-with-static-content-css-and-javascript-js
  
  -----------------------
  TEMPLATE ENGINES
+ http://www.baeldung.com/spring-template-engines
+ 
 	Thymeleaf is auto-configured, JSP not.  Unlike other template engines, Thymeleaf allows using templates as prototypes, 
 	meaning they can be viewed as static files. Spring Boot will provide auto-configuration for Thymeleaf by adding 
 	the spring-boot-starter-thymeleaf dependency:No explicit configuration is necessary. 
@@ -89,7 +146,42 @@ by most build tools if you generate a jar.
 	Spring MVC supports a variety of templating technologies including Thymeleaf, FreeMarker and JSPs.
 	[...] When you’re using one of these templating engines with the default configuration, your 
 	templates will be picked up automatically from src/main/resources/templates. - niejasny czy to odnosi sie do JSP
-	
+--------------------------------------------
+
+Important Maven Commands
+mvn –version -> Find the maven version
+mvn compile -> compiles source files
+mvn test-compile -> compiles test files - one thing to observe is this also compiles source files
+mvn clean -> deletes target directory
+mvn test -> run unit tests
+mvn package -> creates a jar for the project
+help:effective-settings -> Debug Maven Settings
+help:effective-pom -> Look at the complete pom after all inheritances from parent poms are resolved
+dependency:tree -> Look at all the dependencies and transitive dependencies
+dependency:sources -> Download source code for all dependencies
+–debug -> Debug flag. Can be used with all the above commands
+----------------------------------------------
+LIVE RELOAD
+By default, any entry on the classpath that points to a folder will be monitored for changes.
+
+Here are few important things to note:
+
+These folders will not trigger reload by default
+
+/META-INF/maven
+/META-INF/resources
+/resources
+/static - nieprawda: zmiany css dziala, ale js nie dziala
+/public
+/templates
+You can configure additional folders to scan.
+
+application.properties
+
+spring.devtools.restart.additional-paths = /path-to-folder
+You can also configure folders to exclude.
+
+spring.devtools.restart.exclude=static/**,public/**	
  
  -----------------------------------------
 

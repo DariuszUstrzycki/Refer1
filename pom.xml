@@ -86,12 +86,19 @@
 		</dependency>
 		
 		
-		<!-- Optional, for bootstrap -->
+		<!-- Optional, for bootstrap - includes jquery dependency-->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
 			<version>3.3.7</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap-datepicker</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		
 		
 		<!-- start - JSP support             -->
 		
@@ -104,7 +111,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!--  spring-boot-starter-web:
+		Spring - core, beans, context, aop
+		Web MVC - (Spring MVC)
+		Jackson - for JSON Binding
+		Validation - Hibernate Validator, Validation API
+		Embedded Servlet Container - Tomcat
+		Logging - logback, slf4j
 		
+		Spring Boot Starter Web auto-configures (To understand the features Spring Boot 
+		Starter Web brings in, lets run the app a Java Application and review the log.):
+		
+		Dispatcher Servlet
+		Error Page
+		Web Jars to manage your static dependencies
+		Embedded Servlet Container - Tomcat is the default
+		-->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
@@ -112,7 +134,19 @@
 		</dependency>
 		
 		<!-- end JSP support -->
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+	
+	<!-- for REST -->
 			
+	<dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-rest-hal-browser</artifactId>
+    </dependency>
+    
 	</dependencies>
 
 	<build>

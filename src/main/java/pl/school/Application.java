@@ -45,7 +45,7 @@ public class Application{ // extends SpringBootServletInitializer{ // SpringBoot
 
 
 	public static void main(String[] args) {  // http://localhost:8080/
-		SpringApplication.run(Application.class, args);
+		ApplicationContext cxt = SpringApplication.run(Application.class, args);
 	}
 	
 	// Runs on start up. It retrieves all the beans that were created either by your app or were 
